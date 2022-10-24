@@ -3,7 +3,7 @@ package main
 /*This is a quick notetakingcli(qote), that lets you quickly take notes in the Terminal and saves them in a .txt file with the current time and date as name.
 Features:
 	- Save and quit with ctrl-w
-	- Save files as .txt and with the current time and date as name
+	- Save files as .md and with the current time and date as name
 	- Press ctrl-c to just exit but not write
 */
 
@@ -89,8 +89,8 @@ func save(g *gocui.Gui, v *gocui.View) error {
 	//get the current date and time
 	currentTime := time.Now()
 
-	//create a new .txt file with the name being the current date and time
-	f, _ := os.Create(string(currentTime.Format("15:04:05-2006-01-02")) + ".txt")
+	//create a new .md file with the name being the current date and time
+	f, _ := os.Create(string(currentTime.Format("15:04:05-2006-01-02")) + ".md")
 
 	//write the Buffer to the file with error handling
 	_, err := f.WriteString(v.Buffer())
